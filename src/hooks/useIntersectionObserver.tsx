@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from 'react'
  * The interface for the Intersection Observer option-object.
  *
  */
- export interface intersectionObserverOptions {
+export interface IntersectionObserverOptions {
   root?: HTMLElement | null
   rootMargin?: string
   threshold?: number
@@ -22,9 +22,9 @@ import { useState, useEffect, useRef } from 'react'
  * @param {object} options - Options-object for the Intersection Observer.
  * @returns {object} - Ref for target element and isIntersecting-state.
  */
-const useIntersectionObserver = (options?: intersectionObserverOptions) => {
+const useIntersectionObserver = <T extends HTMLElement>(options?: IntersectionObserverOptions) => {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
-  const targetRef = useRef<HTMLElement | null>(null)
+  const targetRef = useRef<T>(null)
 
   /**
    * Callback-function checking if element is intersecting.
@@ -55,7 +55,7 @@ const useIntersectionObserver = (options?: intersectionObserverOptions) => {
     }
 
     const observer: IntersectionObserver = new IntersectionObserver(intersectionHandler, intersectionOptions)
-    const target: HTMLElement | null = targetRef.current
+    const target: T | null = targetRef.current
 
     if (target) {
       observer.observe(target)
@@ -79,3 +79,4 @@ const useIntersectionObserver = (options?: intersectionObserverOptions) => {
 }
 
 export default useIntersectionObserver
+ 
