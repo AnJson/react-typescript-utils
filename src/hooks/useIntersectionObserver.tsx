@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from 'react'
  *
  */
  export interface intersectionObserverOptions {
-  root?: null | HTMLElement
+  root?: HTMLElement | null
   rootMargin?: string
   threshold?: number
 }
@@ -24,7 +24,7 @@ import { useState, useEffect, useRef } from 'react'
  */
 const useIntersectionObserver = (options?: intersectionObserverOptions) => {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
-  const targetRef = useRef<null | HTMLElement>(null)
+  const targetRef = useRef<HTMLElement | null>(null)
 
   /**
    * Callback-function checking if element is intersecting.
@@ -42,25 +42,34 @@ const useIntersectionObserver = (options?: intersectionObserverOptions) => {
     })
   }
 
+  /**
+   * Initialize the observer for selected target.
+   * Unsubscribes and sets sets new target when targetRef or options changes.
+   *
+   */
   useEffect(() => {
-  const intersectionOptions = {
-    root: options?.root || null,
-    rootMargin: options?.rootMargin || '0px',
-    threshold: options?.threshold || 0
-  }
-
-  const observer: IntersectionObserver = new IntersectionObserver(intersectionHandler, intersectionOptions)
-  const target: null | HTMLElement = targetRef.current
-
-  if (target) {
-    observer.observe(target)
-  }
-
-  return () => {
-    if (target) {
-      observer.unobserve(target)
+    const intersectionOptions = {
+      root: options?.root || null,
+      rootMargin: options?.rootMargin || '0px',
+      threshold: options?.threshold || 0
     }
-  }
+
+    const observer: IntersectionObserver = new IntersectionObserver(intersectionHandler, intersectionOptions)
+    const target: HTMLElement | null = targetRef.current
+
+    if (target) {
+      observer.observe(target)
+    }
+
+    /**
+     * Return useEffect-cleanUp to unobserve target.
+     * [useEffect clean-up documentation]{@link https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup}
+     */
+    return () => {
+      if (target) {
+        observer.unobserve(target)
+      }
+    }
   }, [targetRef, options])
 
   return {
