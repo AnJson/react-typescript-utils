@@ -6,8 +6,8 @@
  */
 
 /** @jsxImportSource @emotion/react */
-import {css, Theme} from '@emotion/react'
-import {medium} from '../../framework/mediaqueries'
+import { css, Theme } from '@emotion/react'
+import { medium } from '../../framework/mediaqueries'
 
 export const headerWrapper = (theme: Theme) => css`
 	display: flex;

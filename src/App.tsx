@@ -26,7 +26,13 @@ const App = (): JSX.Element => {
         theme={theme}
       />
       <GlobalStyles />
-      <YoutubePlayer />
+      <main>
+        <YoutubePlayer />
+        <YoutubePlayer />
+        <YoutubePlayer />
+        <YoutubePlayer />
+        <YoutubePlayer />
+      </main>
     </ThemeProvider>
   )
 }
