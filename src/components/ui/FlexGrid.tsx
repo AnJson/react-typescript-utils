@@ -25,7 +25,7 @@ export interface FlexOptions {
  *
  */
 type Props = {
-  children?: JSX.Element
+  children?: JSX.Element | JSX.Element[]
   options?: FlexOptions
 }
 
@@ -37,8 +37,8 @@ type Props = {
 const FlexGrid = ({ children, options }: Props) => {
   // Populate options with default values to let client only add some options and leave the others to default.
   const optionObject = {
-    flex_direction: options?.flex_direction || 'unset',
-    flex_wrap: options?.flex_wrap || 'unset',
+    flex_direction: options?.flex_direction || 'row',
+    flex_wrap: options?.flex_wrap || 'wrap',
     justify_content: options?.justify_content || 'unset',
     align_items: options?.align_items || 'unset',
     gap: options?.gap || '0px'

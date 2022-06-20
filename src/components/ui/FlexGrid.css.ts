@@ -7,12 +7,12 @@
 
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
-import { medium } from '../../framework/mediaqueries'
 import { FlexOptions } from './FlexGrid'
 
 export const wrapperStyle = (flexOptions: FlexOptions) => css`
 display: flex;
 flex-direction: ${flexOptions.flex_direction};
-align-items: ${flexOptions.align_items}
+align-items: ${flexOptions.align_items};
 flex-wrap: ${flexOptions.flex_wrap};
+gap: ${flexOptions.gap};
 `

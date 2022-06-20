@@ -10,6 +10,7 @@ import { lightTheme } from './framework/theme'
 import { GlobalStyles } from './framework/GlobalStyles'
 import YoutubePlayer from './components/YoutubePlayer/YoutubePlayer'
 import { Header } from './components/ui/Header'
+import FlexGrid from './components/ui/FlexGrid'
 
 /**
  * The main component for the application.
@@ -27,6 +28,14 @@ const App = (): JSX.Element => {
       />
       <GlobalStyles />
       <main>
+        <FlexGrid options={{ gap: theme.spacing.m }}>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+        </FlexGrid>
         <YoutubePlayer />
         <YoutubePlayer />
         <YoutubePlayer />
