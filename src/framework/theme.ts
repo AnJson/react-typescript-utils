@@ -50,7 +50,7 @@ const lightTheme: Theme = {
     name: 'light',
     colors: {
         text: '#232323',
-        primary: '#113d66',
+        primary: '#85b6e4',
         background: '#F8F8FF'
     },
     spacing
@@ -61,7 +61,7 @@ const darkTheme: Theme = {
     colors: {
         text: '#efefef',
         primary: '#113d66',
-        background: '#232323'
+        background: '#1f1f1f'
     },
     spacing
 }

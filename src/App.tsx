@@ -8,6 +8,8 @@ import React, { useState } from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { lightTheme } from './framework/theme'
 import { GlobalStyles } from './framework/GlobalStyles'
+import YoutubePlayer from './components/YoutubePlayer/YoutubePlayer'
+import { Header } from './components/ui/Header'
 
 /**
  * The main component for the application.
@@ -19,8 +21,12 @@ const App = (): JSX.Element => {
 
   return (
     <ThemeProvider theme={ theme }>
+      <Header
+        setTheme={setTheme}
+        theme={theme}
+      />
       <GlobalStyles />
-      <p>React/Typescript-Utils</p>
+      <YoutubePlayer />
     </ThemeProvider>
   )
 }
