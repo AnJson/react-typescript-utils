@@ -14,7 +14,7 @@ import { videoPlayer } from './YoutubePlayer.css'
  * Declare type for size-prop.
  *
  */
-export type VideoSize = 'small' | 'medium' | 'large'
+export type VideoSize = 's' | 'm' | 'l' | 'xl' | 'full' | 'responsive'
 
 /**
  * Declare interface for youtube options.
@@ -44,7 +44,7 @@ type Props = {
  *
  * @returns {JSX} - Container with youtube-video in iframe.
  */
-const YoutubePlayer = ({ youtube_id, size = 'medium',  options }: Props) => {
+const YoutubePlayer = ({ youtube_id, size = 'm',  options }: Props) => {
   const [url, setUrl] = useState<string>('')
   const { targetRef, isIntersecting } = useIntersectionObserver<HTMLDivElement>()
 
