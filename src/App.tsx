@@ -29,18 +29,14 @@ const App = (): JSX.Element => {
       <GlobalStyles />
       <main>
         <FlexGrid options={{ gap: theme.spacing.m }}>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
+          <div style={{ width: '300px', height: '800px', backgroundColor: '#ccc' }}></div>
         </FlexGrid>
-        <YoutubePlayer />
-        <YoutubePlayer />
-        <YoutubePlayer />
-        <YoutubePlayer />
-        <YoutubePlayer />
+        <YoutubePlayer youtube_id='idyT0KBAKy8' options={{ autoplay: true, show_controls: true }} />
       </main>
     </ThemeProvider>
   )
