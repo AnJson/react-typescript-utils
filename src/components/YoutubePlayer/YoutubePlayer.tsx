@@ -6,7 +6,7 @@
  */
 
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 import { videoPlayer } from './YoutubePlayer.css'
 
@@ -46,7 +46,7 @@ type Props = {
  */
 const YoutubePlayer = ({ youtube_id, size = 'm',  options }: Props) => {
   const [url, setUrl] = useState<string>('')
-  const { targetRef, isIntersecting } = useIntersectionObserver<HTMLDivElement>()
+  const { targetRef, isIntersecting } = useIntersectionObserver<HTMLDivElement>(useMemo(() => ({ rootMargin: '50%' }), []))
 
   /**
    * When youtube_id or options change, generate a new url for the iframe.
